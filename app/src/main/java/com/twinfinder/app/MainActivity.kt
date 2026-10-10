@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == PERMISSION_REQUEST_CODE && grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
             startScan()
         } else {
-            statusText.text = "Permissão negada. Não é possível escanear."
+            statusText.text = "PermissÃ£o negada. NÃ£o Ã© possÃ­vel escanear."
         }
     }
 
@@ -64,10 +64,10 @@ class MainActivity : AppCompatActivity() {
             val items = scanner.scanImages()
             
             runOnUiThread {
-                statusText.text = "Encontradas \ fotos. Calculando hashes..."
+                statusText.text = "Encontradas ${items.size} fotos. Calculando hashes..."
             }
 
-            // Agrupa por tamanho primeiro (otimização)
+            // Agrupa por tamanho primeiro (otimizaÃ§Ã£o)
             val bySize = items.groupBy { it.size }.filter { it.value.size > 1 }
             
             val duplicates = mutableListOf<List<MediaItem>>()
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     processed++
                     
                     runOnUiThread {
-                        statusText.text = "Calculando hashes... \/\"
+                        statusText.text = "Calculando hashes... ${processed}/${totalToHash}"
                     }
                 }
                 
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             val spaceMb = spaceSaved / (1024 * 1024)
 
             runOnUiThread {
-                statusText.text = "Busca concluída!\n\ grupos de cópias.\n\ arquivos duplicados.\nEconomia possível: \ MB"
+                statusText.text = "Busca concluÃ­da!\n${duplicateGroupsCount} grupos de cÃ³pias.\n${extraFilesCount} arquivos duplicados.\nEconomia possÃ­vel: ${spaceMb} MB"
                 scanButton.isEnabled = true
             }
         }
