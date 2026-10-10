@@ -33,8 +33,8 @@ jobs:
 
     - name: Sign AAB
       run: |
-        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore release.keystore -storepass twinfinder123 app/build/outputs/bundle/release/app-release-unsigned.aab twinfinder
-        mv app/build/outputs/bundle/release/app-release-unsigned.aab app-release-signed.aab
+        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore release.keystore -storepass twinfinder123 app/build/outputs/bundle/release/app-release.aab twinfinder
+        mv app/build/outputs/bundle/release/app-release.aab app-release-signed.aab
 
     - name: Upload Signed AAB
       uses: actions/upload-artifact@v4
