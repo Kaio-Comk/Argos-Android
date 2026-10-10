@@ -24,9 +24,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew || true
 
-    - name: Generate Keystore
-      run: |
-        keytool -genkey -v -keystore release.keystore -alias twinfinder -keyalg RSA -keysize 2048 -validity 10000 -storepass twinfinder123 -keypass twinfinder123 -dname "CN=TwinFinder, OU=App, O=TwinFinder, L=Brasil, S=BR, C=BR"
+    - name: Decode Keystore
+      run: echo "${{ secrets.KEYSTORE_B64 }}" | base64 --decode > release.keystore
 
     - name: Build AAB
       run: gradle bundleRelease
