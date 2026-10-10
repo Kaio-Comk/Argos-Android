@@ -1,0 +1,49 @@
+name: Build Release AAB
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.5
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew || true
+
+    - name: Generate Keystore
+      run: |
+        keytool -genkey -v -keystore release.keystore -alias twinfinder -keyalg RSA -keysize 2048 -validity 10000 -storepass twinfinder123 -keypass twinfinder123 -dname "CN=TwinFinder, OU=App, O=TwinFinder, L=Brasil, S=BR, C=BR"
+
+    - name: Build AAB
+      run: gradle bundleRelease
+
+    - name: Sign AAB
+      run: |
+        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore release.keystore -storepass twinfinder123 app/build/outputs/bundle/release/app-release-unsigned.aab twinfinder
+        mv app/build/outputs/bundle/release/app-release-unsigned.aab app-release-signed.aab
+
+    - name: Upload Signed AAB
+      uses: actions/upload-artifact@v4
+      with:
+        name: TwinFinder-Release-Bundle
+        path: app-release-signed.aab
+
+    - name: Upload Keystore (KEEP SAFE!)
+      uses: actions/upload-artifact@v4
+      with:
+        name: TwinFinder-Keystore
+        path: release.keystore
