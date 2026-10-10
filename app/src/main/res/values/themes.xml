@@ -1,0 +1,5 @@
+<resources>
+    <style name="Base.Theme.TwinFinder" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+    <style name="Theme.TwinFinder" parent="Base.Theme.TwinFinder" />
+</resources>
