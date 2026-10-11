@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="TwinFinder_Icon_512.png" alt="TwinFinder Logo" width="128" />
+<img src="TwinFinder_Icon_512.png" alt="Argos Logo" width="128" />
 
-# 📱 TwinFinder for Android
+# 📱 Argos-Android
 ### Native, Offline & Privacy-First Duplicate Media Cleaner for Android
 
 [![Platform: Android](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%E2%80%9336)-3DDC84.svg?logo=android&logoColor=white)](https://android.com)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9%2B-7F52FF.svg?logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20No%20Internet%20Permission-success.svg)](https://github.com/Kaio-Comk/twinfinder-android)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20No%20Internet%20Permission-success.svg)](https://github.com/Kaio-Comk/Argos-Android)
 [![Storage](https://img.shields.io/badge/Storage-Scoped%20MediaStore%20%7C%20Android%20Trash-blue.svg)](https://developer.android.com/training/data-storage)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -83,8 +83,8 @@ Ensure you have the **Android SDK** (API 34+) and **JDK 17+** configured:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Kaio-Comk/twinfinder-android.git
-cd twinfinder-android
+git clone https://github.com/Kaio-Comk/Argos-Android.git
+cd Argos-Android
 
 # 2. Build debug APK
 ./gradlew assembleDebug
@@ -97,7 +97,7 @@ adb install app/build/outputs/apk/debug/app-debug.apk
 
 ## 🔒 Privacy & Security
 
-TwinFinder was built from day one with a strict **Privacy-First** architecture:
+Argos was built from day one with a strict **Privacy-First** architecture:
 * **No Telemetry / No Analytics:** No Firebase, no Sentry, no Google Analytics, no Facebook SDK.
 * **No Remote Communications:** No network stack. The app physically cannot send data over the internet.
 * **Scoped Storage Compliant:** Strictly respects modern Android permission models (`READ_MEDIA_IMAGES`, `READ_MEDIA_VIDEO`).
@@ -108,7 +108,7 @@ TwinFinder was built from day one with a strict **Privacy-First** architecture:
 ## 💻 Companion Desktop App
 
 Looking for a desktop version for Windows with perceptual hash support (`dHash`) and video frame fingerprinting?  
-Check out the companion project: **[TwinFinder for Windows (Python / Tkinter)](https://github.com/Kaio-Comk/twinfinder)**.
+Check out the companion project: **[Argos-Cleaner for Windows (Python / Tkinter)](https://github.com/Kaio-Comk/Argos-Cleaner)**.
 
 ---
 
@@ -128,5 +128,5 @@ Contributions, bug reports, and pull requests are warmly welcome!
 Distributed under the **MIT License**. See `LICENSE` for details.
 
 <div align="center">
-  <sub>Built with ❤️ by Kaio Lima. If TwinFinder saved you storage space, please star ⭐ the project!</sub>
+  <sub>Built with ❤️ by Kaio Lima. If Argos-Android saved you storage space, please star ⭐ the project!</sub>
 </div>
