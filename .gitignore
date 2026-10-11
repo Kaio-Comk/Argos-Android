@@ -1,0 +1,20 @@
+# Gradle & Build files
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+local.properties
+
+# Android Keystores & Private credentials
+*.keystore
+*.jks
+keystore_b64.txt
+Releases/
+*.aab
+*.apk
+*.exe
+
+# OS generated
+.DS_Store
+Thumbs.db
