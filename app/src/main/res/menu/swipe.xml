@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_proceed"
+        android:icon="@drawable/ic_check"
+        android:title="@string/proceed"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_customize"
+        android:title="@string/customize_view"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/sort_session"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_keep_rest"
+        android:title="@string/bulk_keep_rest"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_delete_rest"
+        android:title="@string/bulk_delete_rest"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_discard"
+        android:title="@string/discard_choices"
+        app:showAsAction="never" />
+</menu>

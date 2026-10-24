@@ -1,107 +1,57 @@
 package com.twinfinder.app
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import kotlin.concurrent.thread
+import androidx.fragment.app.Fragment
+import com.twinfinder.app.data.Prefs
+import com.twinfinder.app.databinding.ActivityMainBinding
+import com.twinfinder.app.ui.OnboardingActivity
+import com.twinfinder.app.ui.duplicates.DuplicatesFragment
+import com.twinfinder.app.ui.home.HomeFragment
+import com.twinfinder.app.ui.sessions.SessionsFragment
+import com.twinfinder.app.ui.settings.SettingsFragment
+import com.twinfinder.app.util.Permissions
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var statusText: TextView
-    private lateinit var scanButton: Button
-    
-    private val PERMISSION_REQUEST_CODE = 100
+    private lateinit var b: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        statusText = findViewById(R.id.statusText)
-        scanButton = findViewById(R.id.scanButton)
-
-        scanButton.setOnClickListener {
-            checkPermissionsAndScan()
+        if (!Prefs(this).onboardingDone || !Permissions.hasMedia(this)) {
+            startActivity(Intent(this, OnboardingActivity::class.java))
+            finish()
+            return
         }
+        b = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(b.root)
+        b.bottomNav.setOnItemSelectedListener { show(it.itemId); true }
+        if (savedInstanceState == null) b.bottomNav.selectedItemId = R.id.nav_home
     }
 
-    private fun checkPermissionsAndScan() {
-        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO)
-        } else {
-            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-        }
-
-        if (permissions.all { ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED }) {
-            startScan()
-        } else {
-            ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE)
-        }
+    fun select(itemId: Int) {
+        b.bottomNav.selectedItemId = itemId
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
-            startScan()
+    /** Troca de aba sem recriar os fragments (a busca de duplicatas não se perde). */
+    private fun show(itemId: Int) {
+        val fm = supportFragmentManager
+        val tag = itemId.toString()
+        val tx = fm.beginTransaction()
+        fm.fragments.forEach { tx.hide(it) }
+        val existing = fm.findFragmentByTag(tag)
+        if (existing != null) {
+            tx.show(existing)
         } else {
-            statusText.text = "Permissão negada. Não é possível escanear."
+            val fragment: Fragment = when (itemId) {
+                R.id.nav_duplicates -> DuplicatesFragment()
+                R.id.nav_sessions -> SessionsFragment()
+                R.id.nav_settings -> SettingsFragment()
+                else -> HomeFragment()
+            }
+            tx.add(R.id.container, fragment, tag)
         }
-    }
-
-    private fun startScan() {
-        scanButton.isEnabled = false
-        statusText.text = "Buscando fotos..."
-
-        thread {
-            val scanner = Scanner(this)
-            val items = scanner.scanImages()
-            
-            runOnUiThread {
-                statusText.text = "Encontradas ${items.size} fotos. Calculando hashes..."
-            }
-
-            // Agrupa por tamanho primeiro (otimização)
-            val bySize = items.groupBy { it.size }.filter { it.value.size > 1 }
-            
-            val duplicates = mutableListOf<List<MediaItem>>()
-            var processed = 0
-            val totalToHash = bySize.values.sumOf { it.size }
-
-            for ((_, group) in bySize) {
-                val byHash = mutableMapOf<String, MutableList<MediaItem>>()
-                for (item in group) {
-                    val hash = scanner.calculateHash(item.uri)
-                    if (hash != null) {
-                        byHash.getOrPut(hash) { mutableListOf() }.add(item)
-                    }
-                    processed++
-                    
-                    runOnUiThread {
-                        statusText.text = "Calculando hashes... ${processed}/${totalToHash}"
-                    }
-                }
-                
-                byHash.values.filter { it.size > 1 }.forEach {
-                    duplicates.add(it)
-                }
-            }
-
-            val duplicateGroupsCount = duplicates.size
-            val extraFilesCount = duplicates.sumOf { it.size - 1 }
-            val spaceSaved = duplicates.sumOf { group -> (group.size - 1) * group[0].size }
-            val spaceMb = spaceSaved / (1024 * 1024)
-
-            runOnUiThread {
-                statusText.text = "Busca concluída!\n${duplicateGroupsCount} grupos de cópias.\n${extraFilesCount} arquivos duplicados.\nEconomia possível: ${spaceMb} MB"
-                scanButton.isEnabled = true
-            }
-        }
+        tx.commit()
     }
 }

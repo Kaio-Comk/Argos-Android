@@ -1,5 +1,13 @@
 <resources>
     <style name="Base.Theme.TwinFinder" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorSecondary">@color/brand</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="Theme.TwinFinder" parent="Base.Theme.TwinFinder" />
+
+    <style name="TextAppearance.TwinFinder.Section" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
 </resources>

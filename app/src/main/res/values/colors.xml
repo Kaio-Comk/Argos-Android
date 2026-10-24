@@ -1,0 +1,8 @@
+<resources>
+    <color name="brand">#2F5BD3</color>
+    <color name="brand_dark">#9DB5FF</color>
+    <color name="keep">#2E7D32</color>
+    <color name="delete">#C62828</color>
+    <color name="move">#1565C0</color>
+    <color name="scrim">#99000000</color>
+</resources>

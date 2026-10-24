@@ -1,3 +1,364 @@
 <resources>
     <string name="app_name">TwinFinder</string>
+
+    <!-- Navegação -->
+    <string name="nav_home">Início</string>
+    <string name="nav_duplicates">Duplicatas</string>
+    <string name="nav_sessions">Sessões</string>
+    <string name="nav_settings">Ajustes</string>
+
+    <!-- Tipos e modos -->
+    <string name="type_photos">Fotos</string>
+    <string name="type_videos">Vídeos</string>
+    <string name="type_gifs">GIFs</string>
+    <string name="mode_month">Por mês</string>
+    <string name="mode_month_desc">Revise um mês de cada vez</string>
+    <string name="mode_album">Por álbum</string>
+    <string name="mode_album_desc">Câmera, WhatsApp, capturas de tela…</string>
+    <string name="mode_type">Por tipo</string>
+    <string name="mode_type_desc">Só fotos, só vídeos ou só GIFs</string>
+    <string name="mode_random">Rápida</string>
+    <string name="mode_random_desc">%1$d itens sorteados para uma limpeza curta</string>
+    <string name="mode_random_label">Rápida (%1$d itens)</string>
+    <string name="mode_duplicates">Duplicatas</string>
+    <string name="mode_duplicates_desc">Cópias idênticas, encontradas pelo conteúdo</string>
+
+    <!-- Início -->
+    <string name="home_title">Vamos arrumar a galeria</string>
+    <string name="home_subtitle">Arraste para a direita para manter e para a esquerda para apagar.</string>
+    <string name="stats_reviewed">itens revisados</string>
+    <string name="stats_freed">liberados</string>
+    <string name="home_continue">Continuar limpeza</string>
+    <string name="home_continue_desc">%1$s · faltam %2$d</string>
+    <string name="home_trash">Lixeira</string>
+    <string name="home_choose">Escolha como limpar</string>
+
+    <!-- Escolha do grupo -->
+    <string name="group_progress">%1$d de %2$d revisados</string>
+    <string name="group_done">Tudo revisado</string>
+    <string name="group_empty">Nenhuma foto ou vídeo encontrado.</string>
+    <string name="review_again_title">Já revisado</string>
+    <string name="review_again_message">Você já revisou tudo de \"%1$s\". Quer revisar de novo?</string>
+    <string name="review_again">Revisar de novo</string>
+
+    <!-- Limpeza por swipe -->
+    <string name="keep">Manter</string>
+    <string name="delete">Apagar</string>
+    <string name="skip">Pular</string>
+    <string name="undo">Desfazer</string>
+    <string name="move">Mover</string>
+    <string name="share">Compartilhar</string>
+    <string name="file_info">Informações</string>
+    <string name="proceed">Concluir</string>
+    <string name="card_keep_stamp">MANTER</string>
+    <string name="card_delete_stamp">APAGAR</string>
+    <string name="swipe_counter">%1$d de %2$d</string>
+    <string name="swipe_marked">%1$d para apagar · %2$s</string>
+    <string name="swipe_tutorial_title">Como funciona</string>
+    <string name="swipe_tutorial_message">Arraste para a direita para manter e para a esquerda para apagar. Nada é apagado na hora: no fim você revisa tudo e confirma.</string>
+    <string name="got_it">Entendi</string>
+    <string name="swipe_all_done">Você chegou ao fim desta sessão.</string>
+    <string name="video_cannot_play">Não foi possível tocar este vídeo.</string>
+    <string name="share_text">Compartilhado pelo TwinFinder</string>
+    <string name="bulk_actions">Ações em lote</string>
+    <string name="bulk_keep_rest">Manter todos os restantes</string>
+    <string name="bulk_delete_rest">Apagar todos os restantes</string>
+    <string name="bulk_warning">Todos os itens ainda não revisados desta sessão serão marcados para %1$s.</string>
+    <string name="bulk_word_keep">manter</string>
+    <string name="bulk_word_delete">apagar</string>
+
+    <!-- Informações do arquivo -->
+    <string name="info_name">Nome</string>
+    <string name="info_date">Data</string>
+    <string name="info_size">Tamanho</string>
+    <string name="info_dimensions">Dimensões</string>
+    <string name="info_duration">Duração</string>
+    <string name="info_album">Álbum</string>
+    <string name="info_path">Pasta</string>
+    <string name="info_type">Formato</string>
+
+    <!-- Mover -->
+    <string name="move_title">Mover para</string>
+    <string name="move_new_album">Criar álbum</string>
+    <string name="move_new_album_hint">Nome do álbum (até 32 letras)</string>
+    <string name="move_android_folder">Este arquivo está na pasta Android/, que pertence a outro app. O sistema não deixa movê-lo.</string>
+    <string name="move_unsupported">Mover exige Android 10 ou mais novo.</string>
+    <string name="move_existing_albums">Álbuns do aparelho</string>
+    <string name="move_my_targets">Meus destinos</string>
+
+    <!-- Revisão final -->
+    <string name="review_title">Revise antes de confirmar</string>
+    <plurals name="review_to_delete">
+        <item quantity="one">Para apagar (1 item · %2$s)</item>
+        <item quantity="other">Para apagar (%1$d itens · %2$s)</item>
+    </plurals>
+    <string name="review_to_delete">Para apagar (%1$d · %2$s)</string>
+    <plurals name="review_to_move">
+        <item quantity="one">Para mover (1 item)</item>
+        <item quantity="other">Para mover (%1$d itens)</item>
+    </plurals>
+    <string name="review_to_move">Para mover (%1$d)</string>
+    <string name="review_nothing">Nada marcado para apagar ou mover.</string>
+    <string name="review_tap_hint">Toque para desmarcar. Pressione e segure para ver em tela cheia.</string>
+    <plurals name="review_confirm_trash">
+        <item quantity="one">Mover %1$d item para a lixeira</item>
+        <item quantity="other">Mover %1$d itens para a lixeira</item>
+    </plurals>
+    <string name="review_confirm_trash">Mover %1$d itens para a lixeira</string>
+    <plurals name="review_confirm_delete">
+        <item quantity="one">Apagar %1$d item de vez</item>
+        <item quantity="other">Apagar %1$d itens de vez</item>
+    </plurals>
+    <string name="review_confirm_delete">Apagar %1$d itens de vez</string>
+    <plurals name="review_confirm_move">
+        <item quantity="one">Mover %1$d item</item>
+        <item quantity="other">Mover %1$d itens</item>
+    </plurals>
+    <string name="review_confirm_move">Mover %1$d itens</string>
+    <string name="review_finish">Concluir sessão</string>
+    <string name="review_multi_part">O Android aceita até %1$d itens por pedido. Você vai confirmar em %2$d partes.</string>
+    <string name="review_cancelled">Cancelado. Os itens continuam marcados.</string>
+    <string name="review_legacy_confirm">Apagar %1$d itens de vez? Nesta versão do Android não há lixeira.</string>
+    <string name="review_move_failed">%1$d itens não puderam ser movidos e continuam onde estavam.</string>
+    <string name="review_working">Aplicando…</string>
+    <string name="cloud_warning">O app só mexe nos arquivos deste aparelho. Cópias em backups na nuvem (Google Fotos, por exemplo) não são apagadas.</string>
+
+    <!-- Sucesso -->
+    <string name="success_title">Galeria mais leve!</string>
+    <string name="success_message">Você revisou %1$d itens e liberou %2$s.</string>
+    <string name="success_time">Tempo nesta sessão: %1$s</string>
+    <string name="success_back">Voltar ao início</string>
+
+    <!-- Sessões -->
+    <string name="sessions_pending">Em andamento</string>
+    <string name="sessions_completed">Concluídas</string>
+    <string name="sessions_empty_pending">Nenhuma limpeza em andamento.</string>
+    <string name="sessions_empty_completed">Nenhuma sessão concluída ainda.</string>
+    <string name="session_line">%1$d mantidos · %2$d apagados · %3$d movidos</string>
+    <string name="session_line_pending">%1$d de %2$d revisados</string>
+    <string name="session_resume">Continuar</string>
+    <string name="session_discard">Descartar</string>
+    <string name="session_discard_title">Descartar sessão?</string>
+    <string name="session_discard_message">As decisões desta sessão serão esquecidas. Nenhum arquivo é apagado.</string>
+
+    <!-- Lixeira -->
+    <string name="trash_title">Lixeira</string>
+    <string name="trash_info">Itens que o TwinFinder mandou para a lixeira do sistema. O Android apaga de vez depois de 30 dias. Pressione e segure para abrir em tela cheia.</string>
+    <string name="trash_empty">Nada na lixeira.</string>
+    <string name="trash_days_left">%1$d dias</string>
+    <string name="trash_restore">Restaurar</string>
+    <string name="trash_delete_forever">Apagar de vez</string>
+    <string name="trash_select_all">Selecionar tudo</string>
+    <string name="trash_unsupported">A lixeira do sistema existe a partir do Android 11. Nesta versão, apagar é permanente.</string>
+
+    <!-- Duplicatas -->
+    <string name="dup_desc">Procura cópias idênticas de fotos e vídeos comparando o conteúdo, não o nome. Tudo é feito no aparelho.</string>
+    <string name="dup_scan">Procurar duplicatas</string>
+    <string name="dup_scanning">Lendo a galeria…</string>
+    <string name="dup_hashing">Comparando conteúdo… %1$d de %2$d</string>
+    <string name="dup_none">Nenhuma duplicata encontrada.</string>
+    <string name="dup_result">%1$d grupos · %2$d cópias · %3$s a liberar</string>
+    <string name="dup_group_title">%1$d cópias · %2$s cada</string>
+    <string name="dup_keep_badge">Fica</string>
+    <string name="dup_review">Revisar e apagar cópias</string>
+    <string name="dup_hint">Toque na foto que deve ficar. As outras do grupo são marcadas para apagar.</string>
+
+    <!-- Ajustes -->
+    <string name="settings_appearance">Aparência</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Igual ao sistema</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+    <string name="settings_cleaning">Limpeza</string>
+    <string name="settings_use_trash">Mandar para a lixeira</string>
+    <string name="settings_use_trash_desc">Dá para restaurar por 30 dias. Desligado, apaga de vez.</string>
+    <string name="settings_random_count">Itens na limpeza rápida</string>
+    <string name="settings_random_error">Use um número entre %1$d e %2$d.</string>
+    <string name="settings_sort">Ordem dos itens</string>
+    <string name="sort_date_desc">Mais recentes primeiro</string>
+    <string name="sort_date_asc">Mais antigos primeiro</string>
+    <string name="sort_size_desc">Maiores primeiro</string>
+    <string name="sort_size_asc">Menores primeiro</string>
+    <string name="settings_view">Tela de limpeza</string>
+    <string name="settings_strip">Faixa de miniaturas no topo</string>
+    <string name="settings_file_info">Mostrar informações do arquivo</string>
+    <string name="settings_video_sound">Vídeos com som</string>
+    <string name="settings_animate">Animar os botões</string>
+    <string name="settings_proceed_top">Botão Concluir no topo</string>
+    <string name="settings_share_text">Incluir texto ao compartilhar</string>
+    <string name="settings_albums">Álbuns</string>
+    <string name="settings_excluded_albums">Álbuns que ficam de fora</string>
+    <string name="settings_excluded_count">%1$d álbuns de fora</string>
+    <string name="settings_move_targets">Destinos para mover</string>
+    <string name="settings_reminders">Lembretes</string>
+    <string name="settings_weekly">Lembrete semanal</string>
+    <string name="settings_weekly_desc">Avisa se houver limpeza pela metade</string>
+    <string name="settings_monthly">Lembrete mensal</string>
+    <string name="settings_monthly_desc">Um lembrete por mês para revisar a galeria</string>
+    <string name="settings_notifications_denied">Sem permissão de notificação. Libere nos ajustes do Android.</string>
+    <string name="settings_data">Dados</string>
+    <string name="settings_reset">Zerar o app</string>
+    <string name="settings_reset_desc">Apaga sessões, estatísticas e ajustes. Suas fotos não são tocadas.</string>
+    <string name="settings_reset_confirm">Isso não pode ser desfeito. Zerar mesmo assim?</string>
+    <string name="settings_about">Sobre</string>
+    <string name="settings_about_app">Sobre o TwinFinder</string>
+    <string name="settings_share_app">Indicar o app</string>
+    <string name="settings_feedback">Enviar sugestão</string>
+    <string name="settings_rate">Avaliar na Play Store</string>
+    <string name="share_app_message">Estou usando o TwinFinder para limpar a galeria do celular. Funciona sem internet e não manda nada para servidor: https://play.google.com/store/apps/details?id=com.twinfinder.app</string>
+    <string name="feedback_url">https://github.com/Kaio-Comk/Argos-Android/issues</string>
+    <string name="reset_done">App zerado.</string>
+
+    <!-- Álbuns e destinos -->
+    <string name="albums_title">Álbuns na limpeza</string>
+    <string name="albums_hint">Desmarque os álbuns que não devem aparecer nas limpezas.</string>
+    <string name="targets_title">Destinos para mover</string>
+    <string name="targets_hint">Álbuns que aparecem primeiro na hora de mover. Use as setas para reordenar.</string>
+    <string name="targets_empty">Nenhum destino. Crie um na hora de mover ou toque em Criar álbum.</string>
+    <string name="remove">Remover</string>
+    <string name="items_count">%1$d itens</string>
+
+    <!-- Sobre -->
+    <string name="about_version">Versão %1$s</string>
+    <string name="about_text">O TwinFinder ajuda a liberar espaço no celular sem abrir mão da privacidade. Ele não pede acesso à internet: suas fotos e vídeos nunca saem do aparelho, e não há contas, anúncios nem rastreamento.</string>
+    <string name="about_credits">Feito com Kotlin, AndroidX, Material Components, Room, WorkManager e Coil (licenças Apache 2.0).</string>
+    <string name="about_license">Código aberto sob licença MIT.</string>
+
+    <!-- Onboarding e permissão -->
+    <string name="onb_1_title">Limpe arrastando</string>
+    <string name="onb_1_desc">Direita mantém, esquerda apaga. Uma foto de cada vez, sem pressa.</string>
+    <string name="onb_2_title">Do seu jeito</string>
+    <string name="onb_2_desc">Por mês, por álbum, por tipo ou numa rodada rápida. Maiores ou mais recentes primeiro.</string>
+    <string name="onb_3_title">Ache as cópias</string>
+    <string name="onb_3_desc">O TwinFinder encontra fotos e vídeos repetidos pelo conteúdo, mesmo com nomes diferentes.</string>
+    <string name="onb_4_title">Privado de verdade</string>
+    <string name="onb_4_desc">O app nem pede acesso à internet. Tudo acontece no seu celular.</string>
+    <string name="onb_next">Próximo</string>
+    <string name="onb_skip">Pular</string>
+    <string name="perm_title">Acesso às fotos e vídeos</string>
+    <string name="perm_desc">Para mostrar sua galeria, o TwinFinder precisa ler as fotos e os vídeos do aparelho. Nada é enviado para fora.</string>
+    <string name="perm_grant">Permitir acesso</string>
+    <string name="perm_settings">Abrir ajustes</string>
+    <string name="perm_denied">Sem acesso, o app não consegue mostrar a galeria.</string>
+    <string name="perm_partial">Você liberou só algumas fotos. Para limpar a galeria, escolha \"Permitir tudo\".</string>
+
+    <!-- Lembretes -->
+    <string name="channel_reminders">Lembretes de limpeza</string>
+    <string name="notif_pending_title">Sua limpeza ficou pela metade</string>
+    <string name="notif_pending_text">Faltam alguns itens. Que tal terminar agora?</string>
+    <string name="notif_monthly_title">Hora de arrumar a galeria</string>
+    <string name="notif_monthly_text">Um mês de fotos novas esperando por você.</string>
+    <string name="reminder_suggest_title">Quer um lembrete?</string>
+    <string name="reminder_suggest_message">Posso avisar uma vez por semana quando houver limpeza pela metade.</string>
+    <string name="yes">Sim</string>
+    <string name="no_thanks">Agora não</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="error_generic">Algo deu errado. Tente de novo.</string>
+
+    <!-- Paridade com o Sponge (23/10/2026) -->
+    <string name="home_discovered">%1$d fotos e vídeos na galeria</string>
+    <string name="home_start_cleaning">Começar a limpar</string>
+    <string name="learn_more">Saber mais</string>
+    <string name="clarification_title">Fotos na nuvem</string>
+    <string name="clarification_text">O TwinFinder trabalha só com as fotos e os vídeos guardados neste celular.\n\nSe você usa o Google Fotos ou outro backup na nuvem, apagar aqui não apaga a cópia de lá. E, às vezes, a foto que aparece no app da nuvem nem está no celular: ela continua ocupando espaço só no backup.\n\nPara liberar espaço na nuvem, apague também pelo app do backup.</string>
+    <string name="stats_banner_title">Você está mandando bem!</string>
+    <string name="stats_banner_message">Já liberou %1$s. Veja suas estatísticas completas.</string>
+    <string name="rating_banner">Você já revisou %1$d itens e liberou %2$s. Está gostando do TwinFinder?</string>
+    <string name="rating_yes">Avaliar</string>
+    <string name="rating_no">Dar sugestão</string>
+
+    <!-- Escolha da limpeza -->
+    <string name="mode_select_title">Escolher limpeza</string>
+    <string name="search_hint">Buscar</string>
+    <string name="group_by">Agrupar por</string>
+    <string name="filters">Filtros</string>
+    <string name="filter_hide_completed">Ocultar já revisados</string>
+    <string name="sort_groups">Ordenar</string>
+    <string name="apply">Aplicar</string>
+    <string name="gsort_default_month">Mês mais recente primeiro</string>
+    <string name="gsort_default">Padrão</string>
+    <string name="gsort_oldest">Mais antigo primeiro</string>
+    <string name="gsort_total_desc">Mais itens primeiro</string>
+    <string name="gsort_total_asc">Menos itens primeiro</string>
+    <string name="gsort_remaining_desc">Mais itens a revisar primeiro</string>
+    <string name="gsort_remaining_asc">Menos itens a revisar primeiro</string>
+    <string name="gsort_name_asc">Nome (A–Z)</string>
+    <string name="gsort_name_desc">Nome (Z–A)</string>
+    <string name="gsort_custom">Minha ordem de álbuns</string>
+    <string name="no_results">Nada encontrado. Tente outra busca ou filtro.</string>
+    <string name="sort_name_asc">Nome (A–Z)</string>
+
+    <!-- Tela de limpeza -->
+    <string name="full_screen">Tela cheia</string>
+    <string name="customize_view">Personalizar tela</string>
+    <string name="customize_view_desc">Escolha o que aparece enquanto você limpa</string>
+    <string name="sort_session">Ordenar esta limpeza</string>
+    <string name="discard_choices">Descartar escolhas</string>
+    <string name="discard_choices_message">Todas as decisões desta limpeza serão esquecidas e você começa de novo. Nenhum arquivo é apagado.</string>
+    <string name="settings_organize">Modo organizado</string>
+    <string name="settings_organize_desc">Mostra as pastas de destino na tela de limpeza: toque numa para mover</string>
+    <string name="cannot_move_android">Não dá para mover: a pasta Android/ pertence a outro app</string>
+    <string name="tutorial_step_delete">Para apagar, arraste o cartão para a esquerda ou toque no botão vermelho.</string>
+    <string name="tutorial_step_keep">Para manter, arraste para a direita ou toque no botão verde.</string>
+    <string name="tutorial_step_proceed">Quando terminar, toque em Concluir. Você revisa tudo antes de qualquer coisa ser apagada.</string>
+    <string name="next">Próximo</string>
+    <string name="skip_tutorial">Pular tutorial</string>
+    <string name="info_modified">Modificado em</string>
+
+    <!-- Revisão -->
+    <string name="decide_later">Decidir depois</string>
+    <string name="review_mark_all_keep">Desmarcar tudo</string>
+    <string name="review_mark_all_delete">Marcar tudo</string>
+    <string name="review_move_to">Para %1$s</string>
+    <string name="delete_choice_title">Para onde vão os itens apagados?</string>
+    <string name="delete_choice_message">Na lixeira, você pode restaurar por 30 dias. Apagar de vez libera o espaço na hora, sem volta. Dá para mudar depois nos Ajustes.</string>
+    <string name="delete_choice_trash">Mandar para a lixeira</string>
+    <string name="delete_choice_forever">Apagar de vez</string>
+
+    <!-- Stats -->
+    <string name="stats_title">Estatísticas</string>
+    <string name="stats_empty">Conclua sua primeira limpeza para ver as estatísticas aqui.</string>
+    <string name="stats_space_saved">Espaço liberado</string>
+    <string name="stats_speed">Velocidade</string>
+    <string name="stats_speed_value">%1$d itens/h</string>
+    <string name="stats_total">Total revisado</string>
+    <string name="stats_style">Seu estilo de limpeza</string>
+    <string name="stats_kept">Mantidos (%1$d)</string>
+    <string name="stats_deleted">Apagados (%1$d)</string>
+    <string name="stats_moved">Movidos (%1$d)</string>
+    <string name="stats_skipped">Pulados (%1$d)</string>
+    <plurals name="stats_sessions">
+        <item quantity="one">%1$d limpeza · %2$s no total</item>
+        <item quantity="other">%1$d limpezas · %2$s no total</item>
+    </plurals>
+    <string name="stats_sessions">%1$d limpezas · %2$s no total</string>
+    <string name="stats_best_month">Melhor mês</string>
+    <string name="stats_best_month_value">%1$s · %2$d itens</string>
+    <string name="stats_since">Contando desde %1$s</string>
+
+    <!-- Sucesso -->
+    <string name="success_rate_title">Gostou?</string>
+    <string name="success_rate_message">Uma avaliação na Play Store ajuda muito quem fez o app.</string>
+    <string name="success_not_expected">Não foi como esperava?</string>
+
+    <!-- Lixeira -->
+    <string name="trash_delete_all">Apagar tudo</string>
+    <plurals name="trash_summary">
+        <item quantity="one">%1$d item · %2$s</item>
+        <item quantity="other">%1$d itens · %2$s</item>
+    </plurals>
+    <string name="trash_summary">%1$d itens · %2$s</string>
+    <plurals name="trash_delete_all_confirm">
+        <item quantity="one">Apagar de vez este item da lixeira? Não há como desfazer.</item>
+        <item quantity="other">Apagar de vez todos os %1$d itens da lixeira? Não há como desfazer.</item>
+    </plurals>
+    <string name="trash_delete_all_confirm">Apagar de vez todos os %1$d itens da lixeira? Não há como desfazer.</string>
+    <string name="trash_cancel_selection">Cancelar seleção</string>
+
+    <!-- Álbuns -->
+    <string name="albums_order_hint">Toque para incluir ou tirar da limpeza. Use ⋮ para mudar a ordem (vale em \"Minha ordem de álbuns\").</string>
+    <string name="move_up">Subir</string>
+    <string name="move_down">Descer</string>
 </resources>
