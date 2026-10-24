@@ -34,20 +34,18 @@
 
 ---
 
+> [!NOTE]
+> **Branding & Identity:** **Argos-Android** is the open-source repository name. **TwinFinder** is the application name and binary distribution (`Argos-v1.0.0.apk` / `TwinFinder.apk`).
+
+---
+
 ## 📸 Screenshots
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center"><b>Scanning & Detection</b></td>
-      <td align="center"><b>Review & Cleanup</b></td>
-    </tr>
-    <tr>
-      <td><img src="TwinFinder_Screenshot_1.png" width="360" alt="Scanning Screen" /></td>
-      <td><img src="TwinFinder_Screenshot_2.png" width="360" alt="Results Screen" /></td>
-    </tr>
-  </table>
-</div>
+<p align="center">
+  <img src="./TwinFinder_Screenshot_1.png" width="360" alt="Scanning Screen" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./TwinFinder_Screenshot_2.png" width="360" alt="Results Screen" />
+</p>
 
 ---
 
