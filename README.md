@@ -2,7 +2,7 @@
 
 <img src="TwinFinder_Icon_512.png" alt="Argos Logo" width="128" />
 
-# 📱 Argos-Android
+# 📱 Argos-Android (TwinFinder)
 ### Native, Offline & Privacy-First Duplicate Media Cleaner for Android
 
 [![Platform: Android](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%E2%80%9336)-3DDC84.svg?logo=android&logoColor=white)](https://android.com)
@@ -72,8 +72,8 @@ flowchart TD
 ## 🚀 Installation & Download
 
 ### Option 1: Direct APK Download
-Download the latest pre-compiled signed APK from the [Releases](https://github.com/Kaio-Comk/twinfinder-android/releases) section:
-1. Download `TwinFinder.apk`.
+Download the latest pre-compiled signed APK from the [Releases](https://github.com/Kaio-Comk/Argos-Android/releases/latest) section:
+1. Download `Argos-v1.0.0.apk` from the latest release.
 2. Open the file on your Android smartphone.
 3. Allow installation from unknown sources if prompted.
 4. Launch **TwinFinder** and grant gallery read access.
