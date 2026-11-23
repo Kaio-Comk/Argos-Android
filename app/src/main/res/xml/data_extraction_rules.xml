@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12+. Igual ao backup_rules.xml (Android 11 e anteriores): sai do aparelho só a configuração.
+     O banco local guarda caminhos e hashes das fotos do usuário e fica no aparelho.
+     Até 04/11/2026 a tag era <cloud-network>, que não existe neste formato: a regra era ignorada e,
+     no Android 12+, o banco ia para o backup na nuvem e para a transferência entre aparelhos. -->
 <data-extraction-rules>
-    <cloud-network>
-        <exclude domain="sharedpref" path="."/>
-    </cloud-network>
+    <cloud-backup>
+        <include domain="sharedpref" path="."/>
+    </cloud-backup>
+    <device-transfer>
+        <include domain="sharedpref" path="."/>
+    </device-transfer>
 </data-extraction-rules>

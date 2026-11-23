@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
     buildFeatures {
         viewBinding = true
     }
@@ -59,4 +62,8 @@ dependencies {
     // Miniaturas de fotos e vídeos
     implementation("io.coil-kt:coil:2.6.0")
     implementation("io.coil-kt:coil-video:2.6.0")
+
+    // Testes de unidade (JVM + Robolectric), so no build de teste (05/11/2026: o app nao tinha nenhum teste)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.12.2")
 }

@@ -3,8 +3,12 @@ name: Build Release AAB
 on:
   workflow_dispatch:
 
+# Least privilege for the GITHUB_TOKEN: these jobs only read the code.
+permissions:
+  contents: read
 jobs:
   build:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
 
     steps:
@@ -28,9 +32,18 @@ jobs:
     - name: Build AAB
       run: ./gradlew bundleRelease --no-daemon
 
+    # 04/11/2026: the store password was written here in plain text (public repo) and the keystore itself
+    # was uploaded as a workflow artifact. Now the password comes from a secret, reaches jarsigner through
+    # an environment variable (not the command line) and the keystore never leaves the runner.
     - name: Sign AAB
+      env:
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       run: |
-        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore release.keystore -storepass twinfinder123 app/build/outputs/bundle/release/app-release.aab twinfinder
+        if [ -z "$KEYSTORE_PASSWORD" ]; then
+          echo "::error::Create the repository secret KEYSTORE_PASSWORD (Settings > Secrets and variables > Actions)."
+          exit 1
+        fi
+        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore release.keystore -storepass:env KEYSTORE_PASSWORD app/build/outputs/bundle/release/app-release.aab twinfinder
         mv app/build/outputs/bundle/release/app-release.aab app-release-signed.aab
 
     - name: Upload Signed AAB
@@ -39,8 +52,6 @@ jobs:
         name: TwinFinder-Release-Bundle
         path: app-release-signed.aab
 
-    - name: Upload Keystore (KEEP SAFE!)
-      uses: actions/upload-artifact@v4
-      with:
-        name: TwinFinder-Keystore
-        path: release.keystore
+    - name: Remove the decoded keystore
+      if: always()
+      run: rm -f release.keystore
